@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
+@Entity
 public class Request {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

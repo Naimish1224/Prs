@@ -12,7 +12,7 @@ import com.prs.db.VendorRepo;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/cedits")
+@RequestMapping("/api/vendors")
 public class VendorController {
 	
 	@Autowired
