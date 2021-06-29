@@ -11,7 +11,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String user;
+	private String username;
 	private String password;
 	private String firstname;
 	private String lastname;
@@ -19,10 +19,10 @@ public class User {
 	private String email;
 	private int reviewer;
 	private int admin;
-	public User(String user, String password, String firstname, String lastname, String phone, String email,
+	public User(String username, String password, String firstname, String lastname, String phone, String email,
 			int reviewer, int admin) {
 		super();
-		this.user = user;
+		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -31,14 +31,17 @@ public class User {
 		this.reviewer = reviewer;
 		this.admin = admin;
 	}
-	public User() {
-		super();
+	public int getId() {
+		return id;
 	}
-	public String getUser() {
-		return user;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -82,10 +85,14 @@ public class User {
 	public void setAdmin(int admin) {
 		this.admin = admin;
 	}
+	public User() {
+		super();
+	}
 	@Override
 	public String toString() {
-		return "User [user=" + user + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname
-				+ ", Phone=" + Phone + ", email=" + email + ", reviewer=" + reviewer + ", admin=" + admin + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
+				+ ", lastname=" + lastname + ", Phone=" + Phone + ", email=" + email + ", reviewer=" + reviewer
+				+ ", admin=" + admin + "]";
 	}
 	
 }

@@ -1,12 +1,8 @@
 package com.prs.web;
-
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import com.prs.business.LineItem;
-
 import com.prs.db.LineItemRepo;
 
 
@@ -26,6 +22,11 @@ public class LineItemController {
 	@GetMapping("/{id}")
 	public Optional<LineItem> get(@PathVariable Integer id) {
 		return lineItemRepo.findById(id);
+	}
+	
+	@GetMapping("/lines-for-pr/{id}")
+	public Iterable<LineItem> getAllByRequestId(@PathVariable int id) {
+		return lineItemRepo.findAllByRequestId(id);
 	}
 	
 	@PostMapping("/")

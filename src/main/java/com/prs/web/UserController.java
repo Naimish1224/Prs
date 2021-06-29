@@ -42,5 +42,11 @@ public class UserController {
 	public void delete(@PathVariable int id) {
 		userRepo.deleteById(id);
 	}
-
+	
+	@PostMapping("/login")
+	public User login(@RequestBody User user) {
+		user.getUsername();
+		user.getPassword();
+		return user;
+	}
 }
