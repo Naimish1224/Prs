@@ -8,7 +8,7 @@ import com.prs.db.LineItemRepo;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/lineItem")
+@RequestMapping("/api/lineItems")
 public class LineItemController {
 	
 	@Autowired

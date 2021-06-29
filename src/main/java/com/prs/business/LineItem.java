@@ -19,11 +19,9 @@ public class LineItem {
 		super();
 	}
 
-	public LineItem(Product product, Request request, String quantity) {
-		super();
-		this.product = product;
-		this.request = request;
-		this.quantity = quantity;
+	@Override
+	public String toString() {
+		return "LineItem [id=" + id + ", product=" + product + ", request=" + request + ", quantity=" + quantity + "]";
 	}
 
 	public LineItem(int id, Product product, Request request, String quantity) {
@@ -62,14 +60,12 @@ public class LineItem {
 		return quantity;
 	}
 
-	public void setRole(String quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
-	@Override
-	public String toString() {
-		return "Credit [id=" + id + ", product=" + product + ", request=" + request + ", quantity=" + quantity + "]";
-	}
+	
+	
 	
 
 }

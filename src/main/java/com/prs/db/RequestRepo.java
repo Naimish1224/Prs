@@ -10,5 +10,5 @@ import com.prs.business.Request;
 
 
 public interface RequestRepo extends CrudRepository<Request, Integer> {
-	List<Request> findAllByStatus(String rating);
+	List<Request> findAllByStatus(int id);
 }

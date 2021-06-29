@@ -5,8 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import com.bmdb.business.Movie;
 import com.prs.business.Request;
 
 import com.prs.db.RequestRepo;
@@ -54,10 +52,5 @@ public class RequestController {
 		requestRepo.deleteById(id);
 	}
 	
-	@GetMapping("/list-review/{id}")
-	public Iterable<Request> getAllByStatusEquals(@PathVariable int id) {
-		return requestRepo.findAllByStatus(id);
-	
-	}
 
 }
