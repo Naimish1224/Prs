@@ -17,10 +17,10 @@ public class User {
 	private String lastname;
 	private String Phone;
 	private String email;
-	private int reviewer;
-	private int admin;
+	private boolean reviewer;
+	private boolean admin;
 	public User(String username, String password, String firstname, String lastname, String phone, String email,
-			int reviewer, int admin) {
+			boolean reviewer, boolean admin) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -73,16 +73,16 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getReviewer() {
+	public boolean getReviewer() {
 		return reviewer;
 	}
-	public void setReviewer(int reviewer) {
+	public void setReviewer(boolean reviewer) {
 		this.reviewer = reviewer;
 	}
-	public int getAdmin() {
+	public boolean getAdmin() {
 		return admin;
 	}
-	public void setAdmin(int admin) {
+	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
 	public User() {
