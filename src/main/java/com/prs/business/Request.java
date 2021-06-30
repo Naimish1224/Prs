@@ -18,6 +18,7 @@ public class Request {
 	private double total;
 	private LocalDateTime submitDate;
 	private String reasonforrejection;
+
 	public Request(int id, String userId, String description, String justification, LocalDateTime dateNeeded,
 			String deliveryMode, String status, double total, LocalDateTime submitDate, String reason) {
 		super();
@@ -32,69 +33,91 @@ public class Request {
 		this.submitDate = submitDate;
 		this.reasonforrejection = reason;
 	}
+
 	public Request() {
 		super();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getJustification() {
 		return justification;
 	}
+
 	public void setJustification(String justification) {
 		this.justification = justification;
 	}
+
 	public LocalDateTime getDateNeeded() {
 		return dateNeeded;
 	}
+
 	public void setDateNeeded(LocalDateTime dateNeeded) {
 		this.dateNeeded = dateNeeded;
 	}
+
 	public String getDeliveryMode() {
 		return deliveryMode;
 	}
+
 	public void setDeliveryMode(String deliveryMode) {
 		this.deliveryMode = deliveryMode;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	public double getTotal() {
 		return total;
 	}
+
 	public void setTotal(double total) {
 		this.total = total;
 	}
+
 	public LocalDateTime getSubmitDate() {
 		return submitDate;
 	}
+
 	public void setSubmitDate(LocalDateTime submitDate) {
 		this.submitDate = submitDate;
 	}
+
 	public String getReason() {
 		return reasonforrejection;
 	}
+
 	public void setReason(String reason) {
 		this.reasonforrejection = reason;
 	}
+
 	@Override
 	public String toString() {
 		return "Request [id=" + id + ", userId=" + userId + ", description=" + description + ", justification="

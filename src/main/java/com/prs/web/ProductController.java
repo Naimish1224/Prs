@@ -12,13 +12,11 @@ import com.prs.business.Product;
 
 import com.prs.db.ProductRepo;
 
-
-
 @CrossOrigin
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-	
+
 	@Autowired
 	private ProductRepo productRepo;
 
@@ -26,17 +24,17 @@ public class ProductController {
 	public Iterable<Product> getAll() {
 		return productRepo.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Optional<Product> get(@PathVariable Integer id) {
 		return productRepo.findById(id);
 	}
-	
+
 	@PostMapping("/")
 	public Product add(@RequestBody Product product) {
 		return productRepo.save(product);
 	}
-	
+
 	@PutMapping("/")
 	public Product update(@RequestBody Product product) {
 		return productRepo.save(product);
@@ -48,25 +46,19 @@ public class ProductController {
 		if (product.isPresent()) {
 			try {
 				productRepo.deleteById(id);
-			}
-			catch (DataIntegrityViolationException dive) {
-				// catch dive when movie exists as fk on another table
+			} catch (DataIntegrityViolationException dive) {
 				System.err.println(dive.getRootCause().getMessage());
 				throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
-						"Foreign Key Constraint Issue - product id: "+id+ " is "
-								+ "referred to elsewhere.");
-			}
-			catch (Exception e) {
+						"Foreign Key Constraint Issue - product id: " + id + " is " + "referred to elsewhere.");
+			} catch (Exception e) {
 				e.printStackTrace();
-				throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, 
+				throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
 						"Exception caught during request delete.");
 			}
-		}
-		else {
-			System.err.println("Product delete error - no product found for id:"+id);
+		} else {
+			System.err.println("Product delete error - no product found for id:" + id);
 		}
 		return product;
 	}
-
 
 }

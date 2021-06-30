@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 public class Product {
 	@Id
@@ -16,6 +17,7 @@ public class Product {
 	private Double price;
 	private String unit;
 	private String photopath;
+
 	public Product(int id, String vendorId, String partnumber, String productName, Double price, String unit,
 			String photopath) {
 		super();
@@ -27,56 +29,71 @@ public class Product {
 		this.unit = unit;
 		this.photopath = photopath;
 	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", vendorId=" + vendorId + ", partnumber=" + partnumber + ", productName="
 				+ productName + ", price=" + price + ", unit=" + unit + ", photopath=" + photopath + "]";
 	}
+
 	public Product() {
 		super();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getVendorId() {
 		return vendorId;
 	}
+
 	public void setVendorId(String vendorId) {
 		this.vendorId = vendorId;
 	}
+
 	public String getPartnumber() {
 		return partnumber;
 	}
+
 	public void setPartnumber(String partnumber) {
 		this.partnumber = partnumber;
 	}
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public Double getPrice() {
 		return price;
 	}
+
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
 	public String getUnit() {
 		return unit;
 	}
+
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
+
 	public String getPhotopath() {
 		return photopath;
 	}
+
 	public void setPhotopath(String photopath) {
 		this.photopath = photopath;
 	}
-	
-	
+
 }
