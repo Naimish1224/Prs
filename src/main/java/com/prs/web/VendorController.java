@@ -3,7 +3,10 @@ package com.prs.web;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.prs.business.Vendor;
 
@@ -39,8 +42,27 @@ public class VendorController {
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable int id) {
-		vendorRepo.deleteById(id);
+	public Optional<Vendor> delete(@PathVariable int id) {
+		Optional<Vendor> vendor = vendorRepo.findById(id);
+		if (vendor.isPresent()) {
+			try {
+				vendorRepo.deleteById(id);
+			}
+			catch (DataIntegrityViolationException dive) {
+				System.err.println(dive.getRootCause().getMessage());
+				throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+						"Foreign Key Constraint Issue - vendor id: "+id+ " is "
+								+ "referred to elsewhere.");
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+				throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, 
+						"Exception caught during vendor delete.");
+			}
+		}
+		else {
+			System.err.println("Vendor delete error - no vendor found for id:"+id);
+		}
+		return vendor;
 	}
-
 }

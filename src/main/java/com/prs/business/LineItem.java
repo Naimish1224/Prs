@@ -13,7 +13,7 @@ public class LineItem {
 	@ManyToOne
 	@JoinColumn(name = "RequestID")
 	private Request request;
-	private String quantity;
+	private int quantity;
 	
 	public LineItem() {
 		super();
@@ -24,7 +24,7 @@ public class LineItem {
 		return "LineItem [id=" + id + ", product=" + product + ", request=" + request + ", quantity=" + quantity + "]";
 	}
 
-	public LineItem(int id, Product product, Request request, String quantity) {
+	public LineItem(int id, Product product, Request request, int quantity) {
 		super();
 		this.id = id;
 		this.product = product;
@@ -56,11 +56,11 @@ public class LineItem {
 		this.request = request;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
