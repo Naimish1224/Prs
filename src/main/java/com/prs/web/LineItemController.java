@@ -54,7 +54,6 @@ public class LineItemController {
 	public LineItem update(@RequestBody LineItem lineItem) {
 		LineItem li = lineItemRepo.save(lineItem);
 		if (recalculateSubTotal(lineItem.getRequest())) {
-			// successful recalculate
 		}
 		else {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, 
@@ -98,7 +97,7 @@ public class LineItemController {
 			try {
 				List<LineItem> lis = lineItemRepo.findAllByRequestId(request.getId());
 				
-				int subtotal = 0;
+				double subtotal = 0.0;
 				for (LineItem li: lis) {
 					subtotal += (li.getQuantity())*(li.getProduct().getPrice());
 				}

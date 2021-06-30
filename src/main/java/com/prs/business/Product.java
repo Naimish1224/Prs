@@ -16,9 +16,10 @@ public class Product {
 	private Double price;
 	private String unit;
 	private String photopath;
-	public Product(String vendorId, String partnumber, String productName, Double price, String unit,
+	public Product(int id, String vendorId, String partnumber, String productName, Double price, String unit,
 			String photopath) {
 		super();
+		this.id = id;
 		this.vendorId = vendorId;
 		this.partnumber = partnumber;
 		this.productName = productName;
@@ -26,8 +27,19 @@ public class Product {
 		this.unit = unit;
 		this.photopath = photopath;
 	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", vendorId=" + vendorId + ", partnumber=" + partnumber + ", productName="
+				+ productName + ", price=" + price + ", unit=" + unit + ", photopath=" + photopath + "]";
+	}
 	public Product() {
 		super();
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getVendorId() {
 		return vendorId;
@@ -65,10 +77,6 @@ public class Product {
 	public void setPhotopath(String photopath) {
 		this.photopath = photopath;
 	}
-	@Override
-	public String toString() {
-		return "Product [vendorId=" + vendorId + ", partnumber=" + partnumber + ", productName=" + productName
-				+ ", price=" + price + ", unit=" + unit + ", photopath=" + photopath + "]";
-	}
+	
 	
 }
