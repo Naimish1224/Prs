@@ -1,6 +1,7 @@
 package com.prs.web;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,19 +34,13 @@ public class RequestController {
 
 	@PostMapping("/")
 	public Request add(@RequestBody Request request) {
-		request.setStatus("NEW");
+		request.setStatus("New");
 		request.setSubmitDate(LocalDateTime.now());
 		return requestRepo.save(request);
 	}
 
 	@PutMapping("/")
 	public Request update(@RequestBody Request request) {
-		if (request.getTotal() < 50) {
-			request.setStatus("Approved");
-		} else {
-			request.setStatus("Review");
-		}
-
 		return requestRepo.save(request);
 	}
 
@@ -78,15 +73,20 @@ public class RequestController {
 	}
 
 	@PutMapping("/approve")
-	public Request approve(@RequestBody Request request) {
-		request.setStatus("Approved");
-		return requestRepo.save(request);
+	public Request approve(@RequestBody Request approve) {
+		approve.setStatus("Approved");
+		return requestRepo.save(approve);
 	}
 
 	@PutMapping("/reject")
-	public Request reject(@RequestBody Request request) {
-		request.setStatus("Rejected");
-		return requestRepo.save(request);
+	public Request reject(@RequestBody Request reject) {
+		reject.setStatus("Rejected");
+		return requestRepo.save(reject);
+	}
+	
+	@GetMapping("/list-review/{id}")
+	public List<Request> getAllReview(@PathVariable int id) {
+		return requestRepo.findAllByUserIdNotAndStatus(id, "Review");
 	}
 
 }

@@ -14,7 +14,7 @@ import com.prs.db.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/lineItems")
+@RequestMapping("/api/line-items")
 public class LineItemController {
 
 	@Autowired

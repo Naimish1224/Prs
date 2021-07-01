@@ -5,40 +5,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String vendorId;
+	@ManyToOne
+	@JoinColumn(name = "VendorID")
+	private Vendor vendor;
 	private String partNumber;
-	private String productName;
+	private String name;
 	private Double price;
 	private String unit;
 	private String photopath;
-
-	public Product(int id, String vendorId, String partNumber, String productName, Double price, String unit,
-			String photopath) {
-		super();
-		this.id = id;
-		this.vendorId = vendorId;
-		this.partNumber = partNumber;
-		this.productName = productName;
-		this.price = price;
-		this.unit = unit;
-		this.photopath = photopath;
-	}
-
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", vendorId=" + vendorId + ", partNumber=" + partNumber + ", productName="
-				+ productName + ", price=" + price + ", unit=" + unit + ", photopath=" + photopath + "]";
-	}
-
-	public Product() {
-		super();
-	}
 
 	public int getId() {
 		return id;
@@ -48,12 +30,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getVendorId() {
-		return vendorId;
+	public Vendor getVendor() {
+		return vendor;
 	}
 
-	public void setVendorId(String vendorId) {
-		this.vendorId = vendorId;
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
 	}
 
 	public String getPartNumber() {
@@ -64,12 +46,12 @@ public class Product {
 		this.partNumber = partNumber;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Double getPrice() {
@@ -94,6 +76,27 @@ public class Product {
 
 	public void setPhotopath(String photopath) {
 		this.photopath = photopath;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", vendor=" + vendor + ", partNumber=" + partNumber + ", name=" + name + ", price="
+				+ price + ", unit=" + unit + ", photopath=" + photopath + "]";
+	}
+
+	public Product(int id, Vendor vendor, String partNumber, String name, Double price, String unit, String photopath) {
+		super();
+		this.id = id;
+		this.vendor = vendor;
+		this.partNumber = partNumber;
+		this.name = name;
+		this.price = price;
+		this.unit = unit;
+		this.photopath = photopath;
+	}
+
+	public Product() {
+		super();
 	}
 
 }
