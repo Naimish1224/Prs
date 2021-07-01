@@ -86,7 +86,7 @@ public class RequestController {
 	
 	@GetMapping("/list-review/{id}")
 	public List<Request> getAllReview(@PathVariable int id) {
-		return requestRepo.findAllByUserIdNotAndStatus(id, "Review");
+		return requestRepo.findAllByUserNotAndStatus(id, "Review");
 	}
 
 }
