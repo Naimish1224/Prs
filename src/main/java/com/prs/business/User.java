@@ -11,22 +11,22 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String username;
+	private String userName;
 	private String password;
-	private String firstname;
-	private String lastname;
-	private String Phone;
+	private String firstName;
+	private String lastName;
+	private String phone;
 	private String email;
 	private boolean reviewer;
 	private boolean admin;
-	public User(String username, String password, String firstname, String lastname, String phone, String email,
+	public User(String userName, String password, String firstName, String lastName, String phone, String email,
 			boolean reviewer, boolean admin) {
 		super();
-		this.username = username;
+		this.userName = userName;
 		this.password = password;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		Phone = phone;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		phone = phone;
 		this.email = email;
 		this.reviewer = reviewer;
 		this.admin = admin;
@@ -38,10 +38,10 @@ public class User {
 		this.id = id;
 	}
 	public String getUsername() {
-		return username;
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -50,22 +50,22 @@ public class User {
 		this.password = password;
 	}
 	public String getFirstname() {
-		return firstname;
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstname(String firstName) {
+		this.firstName = firstName;
 	}
 	public String getLastname() {
-		return lastname;
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastname(String lastName) {
+		this.lastName = lastName;
 	}
-	public String getPhone() {
-		return Phone;
+	public String getphone() {
+		return phone;
 	}
-	public void setPhone(String phone) {
-		Phone = phone;
+	public void setphone(String phone) {
+		phone = phone;
 	}
 	public String getEmail() {
 		return email;
@@ -90,8 +90,8 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
-				+ ", lastname=" + lastname + ", Phone=" + Phone + ", email=" + email + ", reviewer=" + reviewer
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", phone=" + phone + ", email=" + email + ", reviewer=" + reviewer
 				+ ", admin=" + admin + "]";
 	}
 	

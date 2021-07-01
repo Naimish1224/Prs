@@ -12,18 +12,18 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String vendorId;
-	private String partnumber;
+	private String partNumber;
 	private String productName;
 	private Double price;
 	private String unit;
 	private String photopath;
 
-	public Product(int id, String vendorId, String partnumber, String productName, Double price, String unit,
+	public Product(int id, String vendorId, String partNumber, String productName, Double price, String unit,
 			String photopath) {
 		super();
 		this.id = id;
 		this.vendorId = vendorId;
-		this.partnumber = partnumber;
+		this.partNumber = partNumber;
 		this.productName = productName;
 		this.price = price;
 		this.unit = unit;
@@ -32,7 +32,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", vendorId=" + vendorId + ", partnumber=" + partnumber + ", productName="
+		return "Product [id=" + id + ", vendorId=" + vendorId + ", partNumber=" + partNumber + ", productName="
 				+ productName + ", price=" + price + ", unit=" + unit + ", photopath=" + photopath + "]";
 	}
 
@@ -57,11 +57,11 @@ public class Product {
 	}
 
 	public String getPartnumber() {
-		return partnumber;
+		return partNumber;
 	}
 
-	public void setPartnumber(String partnumber) {
-		this.partnumber = partnumber;
+	public void setPartnumber(String partNumber) {
+		this.partNumber = partNumber;
 	}
 
 	public String getProductName() {
