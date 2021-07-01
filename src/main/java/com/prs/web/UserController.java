@@ -63,7 +63,7 @@ public class UserController {
 
 	@PostMapping("/login")
 	public User login(@RequestBody User user) {
-		user.getUsername();
+		user.getUserName();
 		user.getPassword();
 		return user;
 	}

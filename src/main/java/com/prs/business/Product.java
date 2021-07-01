@@ -56,11 +56,11 @@ public class Product {
 		this.vendorId = vendorId;
 	}
 
-	public String getPartnumber() {
+	public String getPartNumber() {
 		return partNumber;
 	}
 
-	public void setPartnumber(String partNumber) {
+	public void setPartNumber(String partNumber) {
 		this.partNumber = partNumber;
 	}
 

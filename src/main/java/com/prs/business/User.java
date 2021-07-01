@@ -26,7 +26,7 @@ public class User {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		phone = phone;
+		this.phone = phone;
 		this.email = email;
 		this.reviewer = reviewer;
 		this.admin = admin;
@@ -37,10 +37,10 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
+	public String getUserName() {
 		return userName;
 	}
-	public void setUsername(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 	public String getPassword() {
@@ -49,23 +49,23 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getFirstname() {
+	public String getFirstName() {
 		return firstName;
 	}
-	public void setFirstname(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLastname() {
+	public String getLastName() {
 		return lastName;
 	}
-	public void setLastname(String lastName) {
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 	public String getphone() {
 		return phone;
 	}
 	public void setphone(String phone) {
-		phone = phone;
+		this.phone = phone;
 	}
 	public String getEmail() {
 		return email;
